@@ -1,11 +1,17 @@
 /* Sets up variables for an elegant color palette */
 /* Sets up variables for an elegant color palette */
+/* Sets up variables for an elegant color palette */
 :root {
-    --bg-color: #0a192f;         /* Dark Navy Blue */
-    --primary-color: #e6f1ff;   /* Softer White (less harsh) */
+    --bg-color: #0f0c29;         /* Deep Blue/Violet */
+    --primary-color: #e6f1ff;   /* Softer White */
     --secondary-color: #a8b2d1;  /* Light grey-blue for details */
-    --accent-color: #58a6ff;     /* A vibrant, modern blue */
-    --card-color: #112240;      /* Lighter navy for cards */
+    --accent-color: #58a6ff;     /* Vibrant blue accent */
+    --card-color: #1a163a;      /* Lighter violet for cards */
+
+    /* Variables for our new glass effect */
+    --glass-color: rgba(26, 22, 58, 0.5);      /* 50% transparent card color */
+    --glass-border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle white border */
+
     --font-main: 'Inter', sans-serif;
 }
 
@@ -30,12 +36,14 @@ html {
 .navbar {
     width: 100%;
     padding: 1rem 0;
-    background-color: var(--bg-color);
-    border-bottom: 1px solid var(--card-color);
-    position: fixed; /* Makes it stick to the top */
+    background-color: var(--glass-color); /* <-- CHANGED */
+    backdrop-filter: blur(10px);          /* <-- ADDED */
+    -webkit-backdrop-filter: blur(10px);  /* <-- ADDED (for Safari) */
+    border-bottom: var(--glass-border);   /* <-- CHANGED */
+    position: fixed;
     top: 0;
     left: 0;
-    z-index: 1000; /* Ensures it's on top of other content */
+    z-index: 1000;
 }
 
 /* This is a common utility class we'll reuse */
@@ -72,53 +80,69 @@ html {
     text-decoration: none;
     color: var(--secondary-color);
     font-weight: 500;
-    transition: color 0.3s ease;
+    padding: 0.5rem 1rem; /* <-- ADDED (creates a "button" area) */
+    border-radius: 8px;   /* <-- ADDED */
+    transition: all 0.3s ease; /* <-- CHANGED (now transitions background) */
 }
 
-/* Elegant hover effect */
 .nav-menu a:hover {
-    color: var(--accent-color);
+    color: var(--primary-color); /* <-- CHANGED (brighter text) */
+    background-color: rgba(255, 255, 255, 0.1); /* <-- ADDED (subtle glass highlight) */
 }
 
 /* ==== GENERIC BUTTON STYLES ==== */
 /* This is our base, reusable button style */
 .btn {
     display: inline-block;
-    padding: 0.75rem 1.5rem; /* 12px 24px */
+    padding: 0.75rem 1.75rem; /* Slightly more horizontal padding */
     font-size: 1rem;
     font-weight: 500;
     text-decoration: none;
-    border-radius: 8px; /* Here are the rounded edges */
+    border-radius: 50px; /* <-- CHANGED (pill shape) */
     border: 1px solid transparent;
     cursor: pointer;
+
+    /* Glass effect for buttons */
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+
+    /* Hover effect */
     transition: all 0.3s ease;
+    transform-origin: center;
     margin: 0.5rem;
 }
 
+/* This new rule adds the "grow" effect on hover */
+.btn:hover {
+    transform: scale(1.05); /* <-- ADDED (makes it bigger) */
+}
+
 /* Primary Button (Filled) */
+/* Primary Button (Translucent Fill) */
 .btn-primary {
-    background-color: var(--accent-color);
-    color: var(--bg-color); /* Dark text on light button */
+    background-color: rgba(88, 166, 255, 0.7); /* Translucent accent */
+    color: var(--primary-color); /* <-- CHANGED (must be light text) */
     font-weight: 600;
+    border: 1px solid var(--accent-color);
 }
 
 .btn-primary:hover {
-    background-color: transparent;
+    background-color: var(--accent-color); /* Solid on hover */
     border-color: var(--accent-color);
-    color: var(--accent-color);
+    color: var(--bg-color); /* <-- CHANGED (dark text on solid) */
 }
 
 /* Secondary Button (Outline) */
+/* Secondary Button (Outline Glass) */
 .btn-secondary {
-    background-color: transparent;
-    border: 1px solid var(--accent-color);
-    color: var(--accent-color);
+    background-color: rgba(255, 255, 255, 0.1); /* Translucent light */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: var(--primary-color); /* <-- CHANGED (light text) */
 }
 
 .btn-secondary:hover {
-    background-color: var(--accent-color);
-    color: var(--bg-color);
-    font-weight: 600;
+    background-color: rgba(255, 255, 255, 0.2); /* More opaque on hover */
+    color: var(--primary-color);
 }
 
 /* ==== HERO SECTION STYLING ==== */
@@ -136,7 +160,7 @@ html {
 }
 
 .hero-content {
-    text-align: left; /* Google/Apple style is often left-aligned */
+    text-align: center; /* Google/Apple style is often left-aligned */
     max-width: 700px; /* Stops the text from becoming too wide */
 }
 
@@ -162,8 +186,8 @@ html {
 }
 
 .hero-buttons {
-    /* Adjusts button alignment if they wrap on small screens */
     display: flex;
     flex-wrap: wrap;
-    margin-left: -0.5rem; /* Counteracts the button's own margin */
+    justify-content: center; /* <-- ADDED */
+    /* margin-left: -0.5rem; (This rule is removed) */
 }
