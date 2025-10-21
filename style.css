@@ -191,3 +191,145 @@ html {
     justify-content: center; /* <-- ADDED */
     /* margin-left: -0.5rem; (This rule is removed) */
 }
+
+/* ==== PROJECTS SECTION STYLING ==== */
+#projects {
+    padding: 6rem 0; /* Adds spacing above and below */
+}
+
+/* Reusable section title */
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* The Grid Layout */
+.projects-grid {
+    display: grid;
+    /* This creates a responsive grid:
+       - Tries to fit columns that are at least 320px wide
+       - '1fr' means they share the remaining space equally
+    */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem; /* Space between the cards */
+}
+
+/* The Glass Project Card */
+.project-card {
+    background-color: var(--glass-color);
+    border: var(--glass-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px; /* Slightly squared for a card */
+    overflow: hidden; /* This is key to keep image corners rounded */
+
+    /* This makes the whole card a flex-column, so the
+       content sits nicely below the media */
+    display: flex;
+    flex-direction: column;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Interactive hover effect */
+.project-card:hover {
+    transform: translateY(-5px); /* Lifts the card up slightly */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Media (Image/Video) Styling */
+.project-media {
+    width: 100%;
+}
+
+.project-media img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Removes any bottom spacing */
+    aspect-ratio: 16 / 9; /* Enforces a 16:9 widescreen look */
+    object-fit: cover; /* Ensures image covers the area, cropping if needed */
+}
+
+/* This container makes the YouTube iframe responsive */
+.video-responsive {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+}
+
+.video-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Card Content Styling */
+.project-content {
+    padding: 1.5rem;
+    /* This makes the content area grow to fill any extra space,
+       pushing the links to the bottom. */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+}
+
+.project-description {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    flex-grow: 1; /* This pushes tech & links to the bottom */
+}
+
+/* Tech Pills Styling */
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.tech-pill {
+    font-size: 0.75rem;
+    font-weight: 500;
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px; /* Pill shape */
+}
+
+/* Project Links (GitHub, etc.) */
+.project-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.link-icon {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.link-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor; /* Inherits the 'color' from .link-icon */
+}
+
+.link-icon:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
