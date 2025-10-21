@@ -1,0 +1,80 @@
+/* Sets up variables for an elegant color palette */
+:root {
+    --bg-color: #1a1a1a;        /* Dark background */
+    --primary-color: #ffffff;   /* White text */
+    --secondary-color: #aaaaaa; /* Grey text for details */
+    --accent-color: #007bff;     /* A professional blue accent */
+    --card-color: #252525;      /* Slightly lighter background for cards */
+    --font-main: 'Inter', sans-serif;
+}
+
+/* Basic page reset and font setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--primary-color);
+    line-height: 1.6;
+}
+
+html {
+    scroll-behavior: smooth; /* Enables smooth scrolling when clicking nav links */
+}
+/* ==== NAVIGATION BAR STYLING ==== */
+.navbar {
+    width: 100%;
+    padding: 1rem 0;
+    background-color: var(--bg-color);
+    border-bottom: 1px solid var(--card-color);
+    position: fixed; /* Makes it stick to the top */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensures it's on top of other content */
+}
+
+/* This is a common utility class we'll reuse */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Flexbox to align logo and menu */
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.nav-menu {
+    list-style: none;
+    display: flex;
+}
+
+.nav-menu li {
+    margin-left: 1.5rem;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Elegant hover effect */
+.nav-menu a:hover {
+    color: var(--accent-color);
+}
