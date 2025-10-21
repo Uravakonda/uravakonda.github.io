@@ -333,3 +333,84 @@ html {
     color: var(--accent-color);
     transform: scale(1.1);
 }
+
+/* ==== EXPERIENCE SECTION STYLING ==== */
+#experience {
+    padding: 6rem 0;
+    background-color: var(--card-color); /* Slight background change for variety */
+}
+
+.experience-list {
+    display: flex;
+    flex-direction: column; /* Stacks cards vertically */
+    gap: 1.5rem; /* Space between cards */
+
+    /* This is the key to the clean, centered, single-column look */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.experience-card {
+    background-color: var(--glass-color);
+    border: var(--glass-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 2rem; /* A bit more padding since there's no image */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.experience-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between; /* Role left, Company right */
+    align-items: center;
+    flex-wrap: wrap; /* Lets them stack on small screens */
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.experience-role {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.experience-company {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    font-weight: 500;
+    text-align: right;
+    flex-shrink: 0; /* Prevents it from wrapping too early */
+}
+
+/* This styles the achievement list */
+.experience-details {
+    list-style: none; /* Removes default bullets */
+    padding-left: 0;
+    margin-bottom: 1.5rem;
+}
+
+.experience-details li {
+    font-size: 1rem;
+    color: var(--secondary-color);
+    margin-bottom: 0.75rem;
+    position: relative; /* Needed for the custom bullet */
+    padding-left: 1.75rem; /* Creates space for the custom bullet */
+}
+
+/* This is the custom, modern bullet point */
+.experience-details li::before {
+    content: '▹'; /* You can change this to '•', '▸', etc. */
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: var(--accent-color);
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1; /* Aligns it with the text */
+}
