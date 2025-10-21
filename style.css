@@ -1,10 +1,11 @@
 /* Sets up variables for an elegant color palette */
+/* Sets up variables for an elegant color palette */
 :root {
-    --bg-color: #1a1a1a;        /* Dark background */
-    --primary-color: #ffffff;   /* White text */
-    --secondary-color: #aaaaaa; /* Grey text for details */
-    --accent-color: #007bff;     /* A professional blue accent */
-    --card-color: #252525;      /* Slightly lighter background for cards */
+    --bg-color: #0a192f;         /* Dark Navy Blue */
+    --primary-color: #e6f1ff;   /* Softer White (less harsh) */
+    --secondary-color: #a8b2d1;  /* Light grey-blue for details */
+    --accent-color: #58a6ff;     /* A vibrant, modern blue */
+    --card-color: #112240;      /* Lighter navy for cards */
     --font-main: 'Inter', sans-serif;
 }
 
@@ -77,4 +78,92 @@ html {
 /* Elegant hover effect */
 .nav-menu a:hover {
     color: var(--accent-color);
+}
+
+/* ==== GENERIC BUTTON STYLES ==== */
+/* This is our base, reusable button style */
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem; /* 12px 24px */
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    border-radius: 8px; /* Here are the rounded edges */
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0.5rem;
+}
+
+/* Primary Button (Filled) */
+.btn-primary {
+    background-color: var(--accent-color);
+    color: var(--bg-color); /* Dark text on light button */
+    font-weight: 600;
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    border-color: var(--accent-color);
+    color: var(--accent-color);
+}
+
+/* Secondary Button (Outline) */
+.btn-secondary {
+    background-color: transparent;
+    border: 1px solid var(--accent-color);
+    color: var(--accent-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+    font-weight: 600;
+}
+
+/* ==== HERO SECTION STYLING ==== */
+.hero {
+    /* This makes the section take up the full screen height */
+    min-height: 100vh;
+
+    /* This is the CSS magic to center the content perfectly */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* This adds space from the top, equal to the navbar's height + some */
+    padding-top: 80px;
+}
+
+.hero-content {
+    text-align: left; /* Google/Apple style is often left-aligned */
+    max-width: 700px; /* Stops the text from becoming too wide */
+}
+
+.hero-title {
+    font-size: 3.5rem; /* 56px */
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+    font-size: 2rem; /* 32px */
+    font-weight: 500;
+    color: var(--accent-color); /* Uses our pop of color */
+    margin-bottom: 1.5rem;
+}
+
+.hero-description {
+    font-size: 1.125rem; /* 18px */
+    color: var(--secondary-color); /* Uses the softer grey-blue */
+    margin-bottom: 2rem;
+    line-height: 1.7;
+}
+
+.hero-buttons {
+    /* Adjusts button alignment if they wrap on small screens */
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -0.5rem; /* Counteracts the button's own margin */
 }
