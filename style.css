@@ -414,3 +414,125 @@ html {
     font-size: 1.25rem;
     line-height: 1; /* Aligns it with the text */
 }
+
+/* ==== EDUCATION & CERTIFICATIONS STYLING ==== */
+#education {
+    padding: 6rem 0;
+    /* Uses the main background, not the darker one */
+}
+
+.sub-section-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-top: 3rem; /* Space above sub-heading */
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--card-color);
+}
+
+.edu-cert-grid {
+    display: grid;
+    /* Responsive grid, similar to projects but can be smaller */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.edu-card {
+    background-color: var(--glass-color);
+    border: var(--glass-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 1.5rem;
+    height: 100%; /* Makes cards in the same row equal height */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.edu-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.edu-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 0.25rem;
+}
+
+.edu-issuer {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--accent-color); /* Highlight the issuer */
+    margin-bottom: 0.25rem;
+}
+
+.edu-date {
+    font-size: 0.9rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+}
+
+.edu-detail {
+    font-size: 0.95rem;
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+/* ==== CONTACT SECTION STYLING ==== */
+#contact {
+    padding: 6rem 0;
+    background-color: var(--card-color); /* Darker background again */
+}
+
+.contact-card {
+    max-width: 800px;
+    margin: 0 auto; /* Center the card */
+    background-color: var(--glass-color);
+    border: var(--glass-border);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 3rem;
+    text-align: center;
+}
+
+.contact-text {
+    font-size: 1.125rem;
+    color: var(--secondary-color);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column; /* Stack the links vertically */
+    align-items: flex-start; /* Left-align the links */
+    gap: 1.5rem; /* Space between links */
+    max-width: 400px; /* Keep them from getting too wide */
+    margin: 0 auto; /* Center the column */
+}
+
+.contact-icon-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Space between icon and text */
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-icon-link:hover {
+    color: var(--accent-color);
+    transform: translateX(5px); /* Slight move on hover */
+}
+
+.contact-icon-link svg {
+    width: 28px;
+    height: 28px;
+    fill: currentColor; /* Inherits the link's color */
+    flex-shrink: 0; /* Prevents icon from shrinking */
+}
